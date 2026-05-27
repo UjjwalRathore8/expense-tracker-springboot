@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgets · Expense Tracker</title>
+
+    <link rel="stylesheet" href="/css/budgets.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+        <div>
+            <h1>📊 Budget Manager</h1>
+            <p>Set monthly spending limits category-wise</p>
+        </div>
+
+        <a href="/html/dashboard.html" class="back-link">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <div class="form-card">
+        <h2>Set New Budget</h2>
+
+        <form id="budgetForm">
+            <div class="form-grid">
+
+                <select id="categoryId" required>
+                    <option value="">Select Category</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="limitAmount"
+                    placeholder="Budget Limit ₹"
+                    min="1"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="month"
+                    placeholder="Month e.g. January"
+                    required
+                >
+
+            </div>
+
+            <button type="submit">+ Add Budget</button>
+        </form>
+    </div>
+
+    <div class="stats-row">
+
+        <div class="stat-card">
+            <span>Total Budgets</span>
+            <div class="stat-value" id="budgetCount">0</div>
+        </div>
+
+        <div class="stat-card">
+            <span>Total Limit</span>
+            <div class="stat-value" id="totalLimit">₹0</div>
+        </div>
+
+    </div>
+
+    <div class="budget-list-header">
+        <h2>📋 Active Budgets</h2>
+        <p>Your category-wise monthly limits</p>
+    </div>
+
+    <div id="budgetList" class="budget-list"></div>
+
+</div>
+
+<script src="/js/budgets.js"></script>
+
+</body>
+</html>

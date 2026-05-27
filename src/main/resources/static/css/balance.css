@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(145deg, #eef2f7 0%, #e4e9f0 100%);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    
+      background:
+        url("/image/b2.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    
+    
+}
+
+.container {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    color: balck;
+}
+
+.back-link {
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    background: white;
+    border-radius: 2rem;
+    color: #2c5282;
+    border: 1px solid #cbd5e1;
+}
+
+.balance-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.balance-card h2 {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 0.75rem;
+}
+
+#balance {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.stats-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-card span {
+    font-size: 0.7rem;
+    color: #718096;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 0.4rem;
+}
+
+.progress-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #4a5568;
+}
+
+.progress-bar-container {
+    background: #edf2f7;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 0.5rem;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #48bb78, #38a169);
+    width: 0%;
+    height: 100%;
+}
+
+.progress-bar.warning {
+    background: linear-gradient(90deg, #ed8936, #dd6b20);
+}
+
+.progress-bar.danger {
+    background: linear-gradient(90deg, #f56565, #e53e3e);
+}
+
+.insight-text {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: #718096;
+    text-align: center;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.quick-btn {
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    background: white;
+    border-radius: 2rem;
+    color: #2d3748;
+    border: 1px solid #cbd5e1;
+}
+
+@media (max-width: 500px) {
+    #balance {
+        font-size: 2.5rem;
+    }
+
+    .stats-row {
+        flex-direction: column;
+    }
+}

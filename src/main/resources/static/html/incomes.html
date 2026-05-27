@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incomes · Expense Tracker</title>
+
+    <link rel="stylesheet" href="/css/incomes.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>💰 Incomes</h1>
+        <a href="/html/dashboard.html" class="back-link">← Dashboard</a>
+    </div>
+
+    <div class="form-card">
+        <form id="incomeForm">
+            <div class="form-grid">
+                <input type="text" id="source" placeholder="Income source" required>
+                <input type="number" id="amount" placeholder="Amount ₹" required>
+                <input type="date" id="date" required>
+            </div>
+
+            <button type="submit">+ Add Income</button>
+        </form>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <span>Total Income</span>
+            <div class="stat-value" id="totalIncome">₹0</div>
+        </div>
+
+        <div class="stat-card">
+            <span>Transactions</span>
+            <div class="stat-value" id="incomeCount">0</div>
+        </div>
+    </div>
+
+    <div class="income-list-header">
+        <h2>📋 Income History</h2>
+    </div>
+
+    <div id="incomeList"></div>
+
+</div>
+
+<script src="/js/incomes.js"></script>
+
+</body>
+</html>

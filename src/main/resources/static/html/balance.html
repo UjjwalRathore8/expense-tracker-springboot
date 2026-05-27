@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance · Expense Tracker</title>
+
+    <link rel="stylesheet" href="/css/balance.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>💰 Balance</h1>
+        <a href="/html/dashboard.html" class="back-link">← Dashboard</a>
+    </div>
+
+    <div class="balance-card">
+        <h2>Your Balance</h2>
+        <p id="balance">₹0</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <span>Total Income</span>
+            <div class="stat-value" id="totalIncome">₹0</div>
+        </div>
+
+        <div class="stat-card">
+            <span>Total Expenses</span>
+            <div class="stat-value" id="totalExpense">₹0</div>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <div class="progress-header">
+            <span>Expense / Income Ratio</span>
+            <span id="ratioPercent">0%</span>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="insight-text" id="insightMessage">
+            Add incomes and expenses to see insights
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <a href="/html/incomes.html" class="quick-btn">+ Income</a>
+        <a href="/html/expenses.html" class="quick-btn">+ Expense</a>
+    </div>
+
+</div>
+
+<script src="/js/balance.js"></script>
+
+</body>
+</html>
