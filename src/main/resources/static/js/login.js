@@ -49,47 +49,29 @@ form.addEventListener("submit", async (e) => {
             })
         });
 
-        const data = await response.json();
 
-        console.log(data);
+		if (response.ok) {
 
-        if(response.ok) {
+		    const data = await response.json();
 
-            localStorage.setItem(
-                "token",
-                data.token
-            );
+		    localStorage.setItem("token", data.token);
+		    localStorage.setItem("userId", data.id);
+		    localStorage.setItem("expense_user_email", email);
 
-            localStorage.setItem(
-                "userId",
-                data.id
-            );
+		    messageDiv.style.color = "green";
+		    messageDiv.innerText = "Login successful";
 
-            localStorage.setItem(
-                "expense_user_email",
-                email
-            );
+		    setTimeout(() => {
+		        window.location.href = "/html/dashboard.html";
+		    }, 1000);
 
-            messageDiv.style.color = "green";
+		} else {
 
-            messageDiv.innerText =
-                "Login successful";
+		    const errorText = await response.text();
 
-            setTimeout(() => {
-
-                window.location.href =
-                    "/html/dashboard.html";
-
-            }, 1000);
-
-        } else {
-
-            messageDiv.style.color = "red";
-
-            messageDiv.innerText =
-                data.message || "Login failed";
-        }
-
+		    messageDiv.style.color = "red";
+		    messageDiv.innerText = errorText || "Login failed";
+		}
     } catch(error) {
 
         console.log(error);

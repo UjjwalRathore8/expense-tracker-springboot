@@ -28,7 +28,7 @@ public class UserController {
 	
 	@Autowired 
 	UserService userservice;
-	@Autowired
+	
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<String> deleteById(@PathVariable long id)
 	{

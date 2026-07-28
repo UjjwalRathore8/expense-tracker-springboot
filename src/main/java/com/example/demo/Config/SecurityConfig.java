@@ -1,7 +1,8 @@
+
 package com.example.demo.Config;
 
 import com.example.demo.security.JwtFilter;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,12 +15,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfig {
 
-    @Autowired
-    private JwtFilter jwtFilter;
+    private final JwtFilter jwtFilter;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public SecurityConfig(JwtFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
     }
 
     @Bean
@@ -28,25 +27,40 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
+
             .sessionManagement(session ->
-            session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        )
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            )
+
             .authorizeHttpRequests(auth -> auth
-            		.requestMatchers(
-            			    "/api/users/**",
-            			    "/api/login",
-            			    "/api/expenses/**",
-            			    "/api/categories/**",
-            			    "/html/**",
-            			    "/css/**",
-            			    "/js/**",
-            			    "/image/**",
-            			    "/favicon.ico"
-            			).permitAll()
+//                 public APIs
+                .requestMatchers(
+
+                    "/html/login.html",
+                    "/html/register.html",
+                    "/",
+                    "/html/**",
+                    "/css/**",
+                    "/js/**",
+                    "/image/**",
+                    "/images/**",
+                    "/favicon.ico",
+                    "/api/login",
+                    "/api/register",
+                    "/api/users"
+                ).permitAll()
+
+                // all other APIs need JWT token
                 .anyRequest().authenticated()
             )
+
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
